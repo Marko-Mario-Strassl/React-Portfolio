@@ -8,7 +8,7 @@ const Portfolio = [
     title: 'Portfolio',
     subTitle: 'markostrassl.ch',
     image: MarkoStrassl_Portfolio_Screenshot,
-    link: 'https://www.google.com/',
+    link: 'https://github.com/Marko-Mario-Strassl/React-Portfolio',
   },
   {
     id: 2,

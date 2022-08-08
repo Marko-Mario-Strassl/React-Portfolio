@@ -3,6 +3,7 @@
   "description": "Portfolio Webseite",
   "author": "Marko-Mario Strassl (admin@markostrassl.ch",
   "version": "1.0",
+  "homepage": "https://markostrassl.ch",
   "private": true,
   "dependencies": {
     "@emailjs/browser": "^3.6.2",
