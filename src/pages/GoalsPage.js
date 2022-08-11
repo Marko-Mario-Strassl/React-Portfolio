@@ -13,7 +13,7 @@ function GoalsPage() {
           Für den Erhalt des eigenössichen Fähigkeitszeugnis EFZ ist die
           Bedingung, im letzten Jahr der Informatikmittelschule ein Praxisjahr
           zu absolvieren. Ich möchte das Praxisjahr mit bestmöglichen Noten
-          abschliessen und suveränen in den Arbeitsalltag starten.
+          abschliessen und suverän in den Arbeitsalltag starten.
           <br />
           Deshalb bin ich auf der Suche nach einer geeigneten Praktikumsstelle
           als Frontend-Entwickler.
