@@ -5,12 +5,14 @@ import AboutPage from './pages/AboutPage';
 import ResumePage from './pages/ResumePage';
 import PortfolioPage from './pages/PortfolioPage';
 import ContactPage from './pages/ContactPage';
-import { Switch as Switching, Route, Redirect } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import styled from 'styled-components';
 
 import {MainLayout} from './styles/Layouts';
+import RequestCV from './pages/RequestCV';
+import GoalsPage from './pages/GoalsPage';
 function App() {
   const theme = 'dark-mode';
   const [isNavToggle, setNavToggle] = useState(false)
@@ -21,14 +23,11 @@ function App() {
 
  
   return (
-    <div className="App">
+    <div className='App'>
       <SideBar isNavToggle={isNavToggle} setNavToggle={setNavToggle} />
 
-      
-
-
       {/* Toggler Button for navbar*/}
-      <div className="hamburger-bar">
+      <div className='hamburger-bar'>
         <IconButton onClick={() => setNavToggle(!isNavToggle)}>
           <MenuIcon />
         </IconButton>
@@ -36,18 +35,19 @@ function App() {
 
       {/* Main Section Start */}
       <MainSectionStyled>
-      <MainLayout>
-        <Switching>
-          <Route path="/" exact> <HomePage /> </Route>
-          <Route path="/about" exact> <AboutPage /> </Route>
-          <Route path="/resume" exact> <ResumePage /> </Route>
-          <Route path="/portfolio" exact> <PortfolioPage /> </Route>
-          <Route path="/contact" exact> <ContactPage /> </Route>
-          <Redirect to="/" />
-        </Switching>
+        <MainLayout>
+          <Routes>
+            <Route path='/' exact element={<HomePage />} />
+            <Route path='/goals' exact element={<GoalsPage />} />
+            <Route path='/about' exact element={<AboutPage />} />
+            <Route path='/resume' exact element={<ResumePage />} />
+            <Route path='/portfolio' exact element={<PortfolioPage />} />
+            <Route path='/contact' exact element={<ContactPage />} />
+            <Route path='/requestCV' exact element={<RequestCV />} />
+            <Route path='/' exact element={<HomePage />} />
+          </Routes>
         </MainLayout>
       </MainSectionStyled>
-
     </div>
   );
 }

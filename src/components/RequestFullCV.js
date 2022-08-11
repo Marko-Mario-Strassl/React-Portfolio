@@ -2,19 +2,12 @@ import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
 import Title from './../components/Title';
 import { InnerLayout } from './../styles/Layouts';
-import ContactInfoItem from './../components/ContactInfoItem';
-import PhoneIcon from '@material-ui/icons/Phone';
-import EmailIcon from '@material-ui/icons/Email';
-import LocationOnIcon from '@material-ui/icons/LocationOn';
 import emailjs from '@emailjs/browser';
 import PrimaryButton from '../components/PrimaryButton';
+import { useNavigate } from 'react-router-dom';
 
-function ContactPage() {
-  const phone = <PhoneIcon />;
-  const email = <EmailIcon />;
-  const location = <LocationOnIcon />;
-  const [isSend, setIsSend] = useState('Nachricht senden');
-  const [sent, setSent] = useState(false);
+function RequestCV() {
+  const navigate = useNavigate();
   const form = useRef();
 
   const sendEmail = (e) => {
@@ -23,77 +16,66 @@ function ContactPage() {
     emailjs
       .sendForm(
         'service_q455b8b',
-        'template_arblz9a',
+        'template_uewxpdh',
         form.current,
         'D7SsMysXloPLyWclQ'
       )
       .then(
         (result) => {
           console.log(result.text);
-          setIsSend('Nachricht wurde gesendet!');
         },
         (error) => {
           console.log(error.text);
-          setIsSend(`Nachricht konnte nicht gesendet werden!${error.text}`);
         }
-      );
+      ),
+      navigate('/about', { replace: true });
   };
   return (
-    <ContactPageStyled>
-      <Title title={'Kontaktiere'} span={'Mich'} />
+    <RequestCVStyled>
+      <Title title={'Ihre'} span={'Kontaktangaben'} />
       <InnerLayout className='contact-section'>
-        <div className='contact-info'>
-          <h4>Kontakt Informationen</h4>
-          <ContactInfoItem
-            icon={phone}
-            heading={'Mobile'}
-            text={'+41 79 127 61 68'}
-          />
-          <ContactInfoItem
-            icon={email}
-            heading={'Email'}
-            text={'admin@markostrassl.ch'}
-          />
-          <ContactInfoItem
-            icon={location}
-            heading={'Adresse'}
-            text={'Zentralstrasse 77, 5430 Wettingen, Schweiz'}
-          />
-        </div>
         <form ref={form} onSubmit={sendEmail} className='form-part'>
-          <h4>Kontakt</h4>
+          <h4>
+            Für das Anfordern der Bewerbungsunterlagen sind Ihre Kontaktangaben
+            erforderlich.
+          </h4>
           <div className='form-group'>
-            <label htmlFor='name'>Name</label>
-            <input type='text' id='name' name='from_name' required />
+            <label htmlFor='vorname'>Vorname</label>
+            <input type='text' id='vorname' name='vorname' required />
+          </div>
+          <div className='form-group'>
+            <label htmlFor='nachname'>Nachname</label>
+            <input type='text' id='nachname' name='nachname' required />
+          </div>
+          <div className='form-group'>
+            <label htmlFor='unternehmen'>Unternehmen</label>
+            <input type='text' id='unternehmen' name='unternehmen' required />
           </div>
           <div className='form-group'>
             <label htmlFor='email'>Email</label>
-            <input type='email' id='email' name='from_email' required />
+            <input type='email' id='email' name='email' required />
           </div>
           <div className='form-group'>
-            <label htmlFor='subject'>Betreff</label>
-            <input type='text' id='subject' name='from_subject' required />
+            <label htmlFor='phone'>Telefonnummer</label>
+            <input
+              type='tel'
+              id='phone'
+              name='phone'
+              pattern='[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}'
+              required
+            />
+            <small>Format: 012-345-67-89</small>
           </div>
           <div className='form-group'>
-            <label htmlFor='message'>Nachricht</label>
-            <textarea
-              id='message'
-              cols='30'
-              rows='5'
-              name='message'
-              required></textarea>
-          </div>
-          <div className='form-group'>
-            {!sent}
-            <PrimaryButton type='submit' btn={isSend} />
+            <PrimaryButton type='submit' btn={'Bewerbung anfordern'} />
           </div>
         </form>
       </InnerLayout>
-    </ContactPageStyled>
+    </RequestCVStyled>
   );
 }
 
-const ContactPageStyled = styled.div`
+const RequestCVStyled = styled.div`
   .contact-section {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -160,4 +142,4 @@ const ContactPageStyled = styled.div`
   }
 `;
 
-export default ContactPage;
+export default RequestCV;

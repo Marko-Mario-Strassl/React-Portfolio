@@ -6,6 +6,7 @@ const GlobalStyle = createGlobalStyle`
         --background-color:#111;
         --sidebar-color:#000;
         --font-color:#F1F1F1;
+        --font-secondary-color:#111;
         --paragraph-color:#bbb;
         --border-color:#191919;
         --border-color-2:#4c4c4c;

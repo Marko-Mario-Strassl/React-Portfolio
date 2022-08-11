@@ -5,21 +5,70 @@ import logo_big from './../images/logo_big.svg';
 function Navbar({ setNavToggle }) {
   return (
     <NavbarStyled>
-      <div className="avatar-logo">
-        <img src={logo_big} alt="Logo" />
+      <div className='avatar-logo'>
+        <img src={logo_big} alt='Logo' />
       </div>
-      <ul className="nav-items">
-        <li><NavLink to="/" exact activeClassName="active-menu" onClick={() => setNavToggle(false)}>Home</NavLink></li>
-        <li><NavLink to="/about" exact activeClassName="active-menu" onClick={() => setNavToggle(false)}>Über Mich</NavLink></li>
-        <li><NavLink to="/resume" exact activeClassName="active-menu" onClick={() => setNavToggle(false)}>Lebenslauf</NavLink></li>
-        <li><NavLink to="/portfolio" exact activeClassName="active-menu" onClick={() => setNavToggle(false)}>Portfolio</NavLink></li>
-        <li><NavLink to="/contact" exact activeClassName="active-menu" onClick={() => setNavToggle(false)}>Kontakt</NavLink></li>
+      <ul className='nav-items'>
+        <li>
+          <NavLink
+            to='/'
+            exact
+            activeClassName='active-menu'
+            onClick={() => setNavToggle(false)}>
+            Home
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to='/goals'
+            exact
+            activeClassName='active-menu'
+            onClick={() => setNavToggle(false)}>
+            Meine Ziele
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to='/about'
+            exact
+            activeClassName='active-menu'
+            onClick={() => setNavToggle(false)}>
+            Über Mich
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to='/resume'
+            exact
+            activeClassName='active-menu'
+            onClick={() => setNavToggle(false)}>
+            Lebenslauf
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to='/portfolio'
+            exact
+            activeClassName='active-menu'
+            onClick={() => setNavToggle(false)}>
+            Portfolio
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to='/contact'
+            exact
+            activeClassName='active-menu'
+            onClick={() => setNavToggle(false)}>
+            Kontakt
+          </NavLink>
+        </li>
       </ul>
       <footer>
         <p>Ⓒ{new Date().getFullYear()} Marko-Mario Strassl</p>
       </footer>
     </NavbarStyled>
-  )
+  );
 }
 
 const NavbarStyled = styled.header`
