@@ -17,6 +17,8 @@ function ContactPage() {
   const [sent, setSent] = useState(false);
   const form = useRef();
 
+  
+
   const sendEmail = (e) => {
     e.preventDefault();
 
@@ -31,6 +33,7 @@ function ContactPage() {
         (result) => {
           console.log(result.text);
           setIsSend('Nachricht wurde gesendet!');
+          setSent(true);
         },
         (error) => {
           console.log(error.text);
@@ -84,8 +87,12 @@ function ContactPage() {
               required></textarea>
           </div>
           <div className='form-group'>
-            {!sent}
-            <PrimaryButton type='submit' btn={isSend} />
+            
+            {!sent
+        ? <PrimaryButton type='submit' btn={isSend} />
+        : <p>{isSend}</p> 
+      }
+            
           </div>
         </form>
       </InnerLayout>
