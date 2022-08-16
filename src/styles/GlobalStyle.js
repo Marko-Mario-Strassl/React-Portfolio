@@ -93,68 +93,7 @@ const GlobalStyle = createGlobalStyle`
         }
     }
 
-    /* Setting Wheel Toggler */
-    .setting-wheel{
-        position: fixed;
-        right:0;
-        top:40%;
-        background: var(--primary-color);
-        width:2rem;
-        height:2rem;
-        z-index: 15;
-        display:flex;
-        align-items: center;
-        justify-content: center;
-        svg{
-            font-size:1.5rem;
-            color:var(--font-color);
-            -webkit-animation: rotating 1s linear infinite;
-            -moz-animation: rotating 1s linear infinite;
-            -ms-animation: rotating 1s linear infinite;
-            -o-animation: rotating 1s linear infinite;
-            animation: rotating 1s linear infinite;
-            @keyframes rotating {
-                from{
-                    -ms-transform: rotate(0deg);
-                    -moz-transform: rotate(0deg);
-                    -webkit-transform: rotate(0deg);
-                    -o-transform: rotate(0deg);
-                    transform: rotate(0deg);
-                }
-                to{
-                    -ms-transform: rotate(360deg);
-                    -moz-transform: rotate(360deg);
-                    -webkit-transform: rotate(360deg);
-                    -o-transform: rotate(360deg);
-                    transform: rotate(360deg);
-                }
-            }
-
-        }
-    }
-
-    /*Floating Toggler*/
-    .light-dark-mode{
-        position: fixed;
-        right:0;
-        top:46%;
-        background: var(--primary-color);
-        width:6.0rem;
-        height:2.5rem;
-        z-index: 15;
-        display:flex;
-        align-items: center;
-        justify-content: center;
-        opacity: 0.8;
-        transition: all .4s ease-in-out;
-        transform:translateX(100%);
-        z-index:20;
-        svg{
-            display:flex;
-            align-items: center;
-            font-size:1.5rem;
-        }
-    }
+  
     .theme{
         transform:translateX(0%);
         z-index:20;
